@@ -49,7 +49,9 @@ docker-compose.override.yml
 
 # Model Files 
 
-# *.pkl
+*.pkl
+*.csv
+
 # *.joblib
 # models/
 
