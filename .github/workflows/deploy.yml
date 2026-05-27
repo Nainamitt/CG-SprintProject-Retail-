@@ -1,4 +1,34 @@
-name: Deploy FastAPI
+# name: Deploy FastAPI
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@v4
+
+#     - name: Set up Python
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.11'
+
+#     - name: Install dependencies
+#       run: pip install -r requirements.txt
+
+#     - name: Deploy to Azure Web App
+#       uses: azure/webapps-deploy@v3
+#       with:
+#         app-name: sprintproject123
+#         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+#         package: .
+
+
+name: Deploy FastAPI to Azure
 
 on:
   push:
@@ -6,7 +36,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +48,8 @@ jobs:
         python-version: '3.11'
 
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: |
+        pip install -r requirements.txt
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
